@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIU Shi | Homepage</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Root variables for refined elegant color scheme */
+        :root {
+            --dark-blue: #1E3A5F;      /* Deep navy blue */
+            --medium-blue: #2C5282;    /* Medium slate blue */
+            --accent-blue: #3182CE;    /* Accent blue for highlights */
+            --light-blue: #E6F0FA;     /* Very light blue for backgrounds */
+            --neutral-gray: #F7FAFC;   /* Almost white with slight blue tint */
+            --dark-text: #2D3748;      /* Dark slate for text */
+            --medium-text: #4A5568;    /* Medium gray for secondary text */
+            --light-text: #EDF2F7;     /* Light text for dark backgrounds */
+            --space-sm: 10px;
+            --space-md: 20px;
+            --space-lg: 30px;
+        }
+        
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body { 
+            font-family: 'Segoe UI', 'Arial', sans-serif; 
+            background-color: var(--neutral-gray);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        /* Header and navigation bar */
+        .header-wrapper {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        header { 
+            background-color: var(--dark-blue);
+            color: var(--light-text); 
+            padding: var(--space-md);
+            text-align: center;
+            font-size: 28px;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        
+        nav { 
+            background-color: var(--medium-blue); 
+            padding: 15px; 
+            display: flex; 
+            justify-content: center; 
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+        }
+        
+        nav a { 
+            color: var(--light-text); 
+            text-decoration: none; 
+            padding: 10px 20px; 
+            font-size: 15px;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.3s;
+            letter-spacing: 0.5px;
+        }
+        
+        nav a i {
+            font-size: 16px;
+        }
+        
+        nav a:hover { 
+            background-color: var(--accent-blue); 
+        }
+
+        /* Main container for about section */
+        .about-container {
+            display: flex; 
+            flex-direction: column;
+            max-width: 1000px; 
+            margin: var(--space-lg) auto; 
+            background-color: white; 
+            padding: var(--space-lg); 
+            border-radius: 5px; 
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+        
+        @media (min-width: 768px) {
+            .about-container {
+                flex-direction: row;
+            }
+        }
+        
+        /* Profile section */
+        .profile-section {
+            width: 100%;
+            text-align: center; 
+            padding: 0 var(--space-md) var(--space-md) var(--space-md);
+        }
+        
+        @media (min-width: 768px) {
+            .profile-section {
+                width: 35%;
+                padding-right: var(--space-lg);
+            }
+        }
+        
+        .profile-container {
+            position: relative;
+            width: 150px;
+            margin: 0 auto var(--space-md);
+        }
+        
+        .profile-pic {
+            width: 150px; 
+            height: auto;
+            object-fit: cover;
+            border-radius: 3px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--light-blue);
+        }
+        
+        .profile-info {
+            font-size: 15px;
+            margin: 10px 0;
+            color: var(--medium-text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .profile-info i {
+            color: var(--accent-blue);
+        }
+
+        /* Social media icons */
+        .social-icons {
+            margin-top: var(--space-md);
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            color: white;
+            font-size: 16px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .github { background-color: var(--dark-blue); }
+        .google-scholar { background-color: var(--medium-blue); }
+        .twitter { background-color: var(--accent-blue); }
+        .cv { background-color: var(--medium-blue); }
+        
+        .social-icons a:hover { 
+            transform: translateY(-3px);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Bio section */
+        .bio-section {
+            width: 100%;
+        }
+        
+        @media (min-width: 768px) {
+            .bio-section {
+                width: 65%;
+            }
+        }
+        
+        .name-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            letter-spacing: 0.5px;
+        }
+        
+        .name-title::after {
+            content: "";
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent-blue);
+        }
+        
+        .bio-text {
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: var(--medium-text);
+            line-height: 1.7;
+        }
+
+        /* Section styling */
+        .content-section {
+            max-width: 1000px; 
+            margin: var(--space-lg) auto; 
+            background-color: white; 
+            padding: var(--space-lg); 
+            border-radius: 5px; 
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .content-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background-color: var(--accent-blue);
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+        
+        .section-title {
+            color: var(--dark-blue);
+            margin-bottom: var(--space-md);
+            padding-bottom: 8px;
+            position: relative;
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--accent-blue);
+        }
+
+        /* Publications styling */
+        .publications-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-md);
+        }
+        
+        @media (min-width: 768px) {
+            .publications-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .publication-card {
+            background-color: var(--light-blue);
+            border-radius: 4px;
+            padding: var(--space-md);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            border-left: 2px solid var(--accent-blue);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .publication-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .publication-title {
+            font-weight: 600;
+            color: var(--dark-blue);
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        
+        .publication-authors {
+            font-style: italic;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: var(--medium-text);
+        }
+        
+        .publication-journal {
+            color: var(--accent-blue);
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .publication-abstract {
+            font-size: 14px;
+            color: var(--medium-text);
+            margin-bottom: 10px;
+            flex-grow: 1;
+        }
+        
+        .publication-links {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+        
+        .publication-links a {
+            background-color: var(--medium-blue);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            text-decoration: none;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .publication-links a:hover {
+            background-color: var(--accent-blue);
+        }
+
+        /* Research interests */
+        .interests-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-md);
+        }
+        
+        .interest-card {
+            background-color: var(--light-blue);
+            border-radius: 4px;
+            padding: var(--space-md);
+            text-align: center;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .interest-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .interest-card i {
+            font-size: 36px;
+            color: var(--accent-blue);
+            margin-bottom: 12px;
+        }
+        
+        .interest-card h3 {
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .interest-card p {
+            font-size: 14px;
+            color: var(--medium-text);
+        }
+
+        /* Projects section */
+        .projects-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-lg);
+            margin-top: var(--space-md);
+        }
+        
+        @media (min-width: 768px) {
+            .projects-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .project-img {
+            height: 100px;
+            overflow: hidden;
+            background-color: var(--medium-blue);
+            position: relative;
+        }
+        
+        .project-img i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 40px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .project-content {
+            padding: var(--space-md);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+        }
+        
+        .project-desc {
+            color: var(--medium-text);
+            font-size: 14px;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .project-tag {
+            background-color: var(--light-blue);
+            color: var(--medium-blue);
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+        
+        .project-link {
+            background-color: var(--medium-blue);
+            color: white;
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 3px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            align-self: flex-start;
+            font-size: 13px;
+            transition: background-color 0.3s;
+        }
+        
+        .project-link:hover {
+            background-color: var(--accent-blue);
+        }
+
+        /* Experience & Education in card format */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-md);
+            margin-top: var(--space-md);
+        }
+        
+        @media (min-width: 768px) {
+            .experience-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .experience-card {
+            background-color: var(--light-blue);
+            border-radius: 4px;
+            padding: var(--space-md);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .experience-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .experience-date {
+            display: inline-block;
+            padding: 4px 8px;
+            background-color: var(--medium-blue);
+            color: white;
+            border-radius: 3px;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+        
+        .experience-title {
+            color: var(--dark-blue);
+            margin-bottom: 5px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .experience-location {
+            color: var(--accent-blue);
+            font-style: italic;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .experience-description {
+            font-size: 14px;
+            color: var(--medium-text);
+        }
+
+        /* Contact section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-lg);
+        }
+        
+        @media (min-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .contact-info {
+            background-color: var(--light-blue);
+            padding: var(--space-md);
+            border-radius: 4px;
+        }
+        
+        .contact-info h3 {
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .contact-info h3::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background-color: var(--accent-blue);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: 10px;
+        }
+        
+        .contact-item i {
+            color: var(--accent-blue);
+            font-size: 18px;
+            width: 20px;
+        }
+        
+        .contact-item span {
+            color: var(--medium-text);
+            font-size: 14px;
+        }
+        
+        .contact-form {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .form-group label {
+            font-size: 14px;
+            color: var(--dark-blue);
+        }
+        
+        .form-control {
+            padding: 10px;
+            border-radius: 3px;
+            border: 1px solid #E2E8F0;
+            background-color: white;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 2px rgba(49, 130, 206, 0.1);
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: var(--medium-blue);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--accent-blue);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-blue); 
+            color: var(--light-text); 
+            padding: var(--space-lg) var(--space-md); 
+            text-align: center; 
+            font-size: 14px;
+        }
+        
+        .footer-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-md);
+        }
+        
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr 1fr;
+                text-align: left;
+            }
+        }
+        
+        .footer-section h3 {
+            color: var(--light-blue);
+            margin-bottom: 15px;
+            font-size: 16px;
+            position: relative;
+            display: inline-block;
+            font-weight: 600;
+        }
+        
+        .footer-section h3::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 25px;
+            height: 2px;
+            background-color: var(--accent-blue);
+        }
+        
+        .footer-section p {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: rgba(237, 242, 247, 0.8);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-links a {
+            color: rgba(237, 242, 247, 0.8);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
+            font-size: 14px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--light-blue);
+        }
+        
+        .footer-bottom {
+            margin-top: var(--space-md);
+            padding-top: var(--space-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(237, 242, 247, 0.6);
+            font-size: 13px;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 36px;
+            height: 36px;
+            background-color: var(--medium-blue);
+            color: white;
+            border-radius: 3px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--accent-blue);
+        }
+
+        /* Mobile responsiveness additional tweaks */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                padding: 10px;
+            }
+            
+            nav a {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header and Navigation -->
+    <div class="header-wrapper">
+        <header>
+            Shi LIU | 刘实
+        </header>
+
+        <nav>
+            <a href="#about"><i class="fas fa-user-alt"></i> ABOUT</a>
+            <a href="#research"><i class="fas fa-microscope"></i> RESEARCH</a>
+            <a href="#publications"><i class="fas fa-book"></i> PUBLICATIONS</a>
+            <a href="#projects"><i class="fas fa-code-branch"></i> PROJECTS</a>
+            <a href="#experience"><i class="fas fa-briefcase"></i> EXPERIENCE</a>
+            <a href="#contact"><i class="fas fa-paper-plane"></i> CONTACT</a>
+        </nav>
+    </div>
+
+    <!-- About Me Section -->
+    <div class="about-container" id="about">
+        <!-- Left side - Profile -->
+        <div class="profile-section">
+            <div class="profile-container">
+                <img src="https://raw.githubusercontent.com/Ponytail2002/LIUSHi02.github.io/main/Newphoto.jpg" alt="Shi LIU" class="profile-pic">
+            </div>
+            <p class="profile-info"><i class="fas fa-graduation-cap"></i> Undergraduate @ MUC</p>
+            <p class="profile-info"><i class="fas fa-university"></i> MSc @ HKU</p>
+            <p class="profile-info"><i class="fas fa-user-graduate"></i> PhD student @ SUSTech</p>
+            <p class="profile-info"><i class="fas fa-envelope"></i> liushi0210@gmail.com</p>
+            
+            <!-- Social media icons -->
+            <div class="social-icons">
+                <a href="#" class="github" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" class="google-scholar" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                <a href="#" class="twitter" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="cv" title="Curriculum Vitae"><i class="fas fa-file-alt"></i></a>
+            </div>
+        </div>
+
+        <!-- Right side - Bio -->
+        <div class="bio-section">
+            <p class="name-title">Shi LIU | 刘实</p>
+            <p class="bio-text">Hello! I am a PhD student at SUSTech, with a Master's degree from HKU. My research focuses on FPGA-based audio signal processing and RRAM-based neural network privacy protection.</p>
+            <p class="bio-text">I am particularly interested in exploring new architectures that integrate hardware and software for efficient and secure computation. Beyond research, I enjoy discussing emerging technologies and collaborating on innovative projects.</p>
+        </div>
+    </div>
+
+    <!-- Research Interests Section -->
+    <section class="content-section" id="research">
+        <h2 class="section-title">Research Interests</h2>
+        <div class="interests-container">
+            <div class="interest-card">
+                <i class="fas fa-microchip"></i>
+                <h3>In-memory Computing</h3>
+                <p>Development of computing architectures that process data directly within memory to reduce data movement and improve energy efficiency.</p>
+            </div>
+            <div class="interest-card">
+                <i class="fas fa-brain"></i>
+                <h3>Neural Networks</h3>
+                <p>RRAM-based implementations of neural networks with a focus on privacy preservation and security enhancement.</p>
+            </div>
+            <div class="interest-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Hardware Differential Privacy</h3>
+                <p>Novel hardware-based approaches to implement differential privacy for enhanced data security and user protection.</p>
+            </div>
+            <div class="interest-card">
+                <i class="fas fa-memory"></i>
+                <h3>Memristor RRAM</h3>
+                <p>Research on resistive random-access memory technologies for next-generation memory and computing applications.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section class="content-section" id="publications">
+        <h2 class="section-title">Publications</h2>
+        <div class="publications-grid">
+            <div class="publication-card">
+                <p class="publication-title">FPGA-Based Audio Signal Processing for Real-Time Applications</p>
+                <p class="publication-authors">Liu S., Zhang J., Wang H.</p>
+                <p class="publication-journal">IEEE Transactions on Circuits and Systems, 2023</p>
+                <p class="publication-abstract">This paper presents a novel FPGA architecture for real-time audio signal processing with minimal latency and optimized resource utilization.</p>
+                <div class="publication-links">
+                    <a href="#"><i class="fas fa-file-pdf"></i> PDF</a>
+                    <a href="#"><i class="fas fa-code"></i> Code</a>
+                </div>
+            </div>
+            <div class="publication-card">
+                <p class="publication-title">Privacy-Preserving Neural Networks Using RRAM-Based Computing</p>
+                <p class="publication-authors">Liu S., Chen L., Wong K.</p>
+                <p class="publication-journal">ACM Journal on Emerging Technologies, 2022</p>
+                <p class="publication-abstract">We introduce a novel approach to neural network privacy protection using resistive random-access memory (RRAM) based implementations.</p>
+                <div class="publication-links">
+                    <a href="#"><i class="fas fa-file-pdf"></i> PDF</a>
+                    <a href="#"><i class="fas fa-code"></i> Code</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="content-section" id="projects">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-container">
+            <div class="project-card">
+                <div class="project-img">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">FPGA Audio Processor</h3>
+                    <p class="project-desc">A high-performance, low-latency audio processing system implemented on FPGA for real-time applications.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">FPGA</span>
+                        <span class="project-tag">Verilog</span>
+                        <span class="project-tag">DSP</span>
+                        <span class="project-tag">Audio</span>
+                    </div>
+                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> View Project</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">SecureNN</h3>
+                    <p class="project-desc">A privacy-preserving neural network implementation using RRAM-based computing for enhanced security.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Neural Networks</span>
+                        <span class="project-tag">RRAM</span>
+                        <span class="project-tag">Privacy</span>
+                        <span class="project-tag">Security</span>
+                    </div>
+                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Education Section - Updated with new info -->
+    <section class="content-section" id="experience">
+        <h2 class="section-title">Experience & Education</h2>
+        <div class="experience-grid">
+            <div class="experience-card">
+                <span class="experience-date">2025.9 - Present</span>
+                <h3 class="experience-title">PhD in Computer Engineering</h3>
+                <p class="experience-location">Southern University of Science and Technology (SUSTech)</p>
+                <p class="experience-description">Researching RRAM-based neural networks and privacy protection.</p>
+            </div>
+            <div class="experience-card">
+                <span class="experience-date">2024.7 - 2025.8</span>
+                <h3 class="experience-title">Master of Science</h3>
+                <p class="experience-location">The University of Hong Kong (HKU)</p>
+                <p class="experience-description">Specialized in hardware systems and reconfigurable computing.</p>
+            </div>
+            <div class="experience-card">
+                <span class="experience-date">2022.01 - 2022.07</span>
+                <h3 class="experience-title">Exchange Student</h3>
+                <p class="experience-location">University of Cambridge</p>
+                <p class="experience-description">Exchange program focused on advanced computer architecture and systems.</p>
+            </div>
+            <div class="experience-card">
+                <span class="experience-date">2020 - 2024</span>
+                <h3 class="experience-title">Bachelor of Engineering</h3>
+                <p class="experience-location">Minzu University of China (MUC)</p>
+                <p class="experience-description">Majored in Electronic Engineering with a focus on digital systems.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="content-section" id="contact">
+        <h2 class="section-title">Contact Me</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Get In Touch</h3>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>liushi0210@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Southern University of Science and Technology, Shenzhen, China</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>Available upon request</span>
+                </div>
+            </div>
+            <div class="contact-form">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" class="form-control" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" class="form-control" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" class="form-control" placeholder="Enter subject">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" class="form-control" placeholder="Enter your message"></textarea>
+                </div>
+                <button class="submit-btn">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Me</h3>
+                <p>PhD student specializing in RRAM-based neural networks and privacy protection research.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#about"><i class="fas fa-angle-right"></i> About</a></li>
+                    <li><a href="#research"><i class="fas fa-angle-right"></i> Research</a></li>
+                    <li><a href="#publications"><i class="fas fa-angle-right"></i> Publications</a></li>
+                    <li><a href="#projects"><i class="fas fa-angle-right"></i> Projects</a></li>
+                    <li><a href="#contact"><i class="fas fa-angle-right"></i> Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <p>Follow me on social media for updates on my research and projects.</p>
+                <div class="social-icons" style="justify-content: flex-start; margin-top: 10px;">
+                    <a href="#" class="github"><i class="fab fa-github"></i></a>
+                    <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="google-scholar"><i class="fas fa-graduation-cap"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Shi LIU. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- JavaScript for minimal functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Back to top button functionality
+            const backToTopButton = document.querySelector('.back-to-top');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
